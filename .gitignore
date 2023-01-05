@@ -1,0 +1,9 @@
+/output
+/.idea
+/node_modules
+/mochawesome-report
+accounts.json
+package-lock.json
+steps.d.ts
+docker-compose.yml
+Dockerfile
