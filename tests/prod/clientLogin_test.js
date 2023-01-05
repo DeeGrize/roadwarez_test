@@ -1,48 +1,48 @@
 const {
     basePage,
     accounts,
-    clientLogin
+    clientLoginPage
 } = inject();
 
-Feature('prod client login').retry();
+Feature('prod client login').retry(2);
 
 Scenario('PROD Тест авторизации с пустыми полями Login/Password', ({I}) => {
-    clientLogin.loginEmptyFields(basePage.url.prod.clientLogin);
+    clientLoginPage.loginEmptyFields(basePage.url.prod.clientLogin);
 }).tag('prodClientLogin1');
 
 Scenario('PROD Тест авторизации с пустым полем Login', ({I}) => {
-    clientLogin.loginEmptyLoginField(
+    clientLoginPage.loginEmptyLoginField(
         basePage.url.prod.clientLogin,
         accounts.client.password);
 }).tag('prodClientLogin2');
 
 Scenario('PROD Тест авторизации с пустым полем Password', ({I}) => {
-    clientLogin.loginEmptyPasswordField(
+    clientLoginPage.loginEmptyPasswordField(
         basePage.url.prod.clientLogin,
-        accounts.client.login);
+        accounts.client.email);
 }).tag('prodClientLogin3');
 
 Scenario('PROD Тест авторизации с невалидным email', ({I}) => {
-    clientLogin.loginIncorrectEmail(
+    clientLoginPage.loginIncorrectEmail(
         basePage.url.prod.clientLogin,
         basePage.data.incorrectData);
 }).tag('prodClientLogin4');
 
 Scenario('PROD Тест авторизации с незарегистрированым email', ({I}) => {
-    clientLogin.loginUnregisteredEmail(
+    clientLoginPage.loginUnregisteredEmail(
         basePage.url.prod.clientLogin,
         basePage.data.incorrectEmail,
         accounts.client.password);
 }).tag('prodClientLogin5');
 
 Scenario('PROD Тест кнопки forgot password', async ({I}) => {
-    await clientLogin.clickForgotPasswordButton(basePage.url.prod.clientLogin);
+    await clientLoginPage.clickForgotPasswordButton(basePage.url.prod.clientLogin);
 }).tag('prodClientLogin6');
 
 Scenario('PROD Тест авторизации пользователя с неактивным чекбоксом remember me', async ({I}) => {
-    await clientLogin.loginUserWithRememberMe(
+    await clientLoginPage.loginUserWithRememberMe(
         basePage.url.prod.clientLogin,
-        accounts.client.login,
+        accounts.client.email,
         accounts.client.password);
 }).tag('prodClientLogin7');
 

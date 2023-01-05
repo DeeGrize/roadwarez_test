@@ -1,5 +1,5 @@
 exports.config = {
-    tests: 'tests/*_test.js',
+    tests: 'tests/*/*_test.js',
     output: './output',
     helpers: {
         Playwright: {
@@ -10,7 +10,7 @@ exports.config = {
             waitForNavigation: 'networkidle0',
             waitForAction: 1000,
             video: true,
-            keepVideoForPassedTests: true,
+            // keepVideoForPassedTests: true,
         },
         FileSystem: {},
     },
@@ -29,8 +29,9 @@ exports.config = {
         I: './steps_file.js',
         accounts: './accounts.json',
         basePage: './pages/basePage.js',
-        clientLogin: './pages/clientLoginPage.js',
-        passwordResetRequest: './pages/passwordResetRequestPage.js'
+        clientLoginPage: './pages/clientLoginPage.js',
+        passwordResetRequestPage: './pages/passwordResetRequestPage.js',
+        clientRegisterPage: './pages/clientRegisterPage.js',
     },
     bootstrap: null,
     name: 'roadwarez_test',
