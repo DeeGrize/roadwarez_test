@@ -10,7 +10,7 @@ exports.config = {
             waitForNavigation: 'networkidle0',
             waitForAction: 1000,
             video: true,
-            keepVideoForPassedTests: true,
+            // keepVideoForPassedTests: true,
         },
         FileSystem: {},
     },

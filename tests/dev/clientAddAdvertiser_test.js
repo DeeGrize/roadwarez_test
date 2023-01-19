@@ -4,7 +4,7 @@ const {
     clientRegisterPage,
 } = inject();
 
-Feature('dev client add advertiser').retry();
+Feature('dev client add advertiser').retry(2);
 
 Before(async ({I}) => {
 
@@ -52,7 +52,7 @@ Scenario('DEV Тест добавление нового advertiser c пусты
 
 }).tag('devClientAddAdvertiser1');
 
-Scenario('Dev Тест добавление нового advertiser c пустым полем Cities of operation', async ({I}) => {
+Scenario('DEV Тест добавление нового advertiser c пустым полем Cities of operation', async ({I}) => {
 
     // Создаем нового Advertiser
     let AdvertiserName = basePage.getCurrentDate(accounts.newAdvertiser.name);
