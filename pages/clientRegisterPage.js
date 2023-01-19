@@ -61,11 +61,16 @@ class ClientRegisterPage extends BasePage {
         I.fillField(this.selectors.fields.company, company);
     }
 
-    clickSignUpForFreeButton() {
+    async clickSignUpForFreeButton() {
         I.scrollTo(this.selectors.buttons.signUpForFreeButton);
         I.moveCursorTo(this.selectors.buttons.signUpForFreeButton);
         I.click(this.selectors.buttons.signUpForFreeButton);
-        I.waitInUrl(this.url.prod.clientIndex, 10);
+        let currentUrl = await I.grabCurrentUrl();
+        if (currentUrl === this.url.dev.clientIndex) {
+            I.waitInUrl(this.url.dev.clientIndex, 10);
+        } else if (currentUrl === this.url.prod.clientIndex){
+            I.waitInUrl(this.url.prod.clientIndex)
+        }
         I.see('Dashboard');
     }
 }
