@@ -9,11 +9,11 @@ Feature('dev client Registration').retry(2);
 Scenario('DEV Тест регистрации нового клиента', async ({I}) => {
     I.amOnPage(basePage.url.dev.clientRegister);
 
-    let email = basePage.getCurrentDate(accounts.client.email);
-    let password = accounts.client.password;
-    let firstName = basePage.getCurrentDate(accounts.client.firstName);
-    let lastName = basePage.getCurrentDate(accounts.client.lastName);
-    let company = basePage.getCurrentDate(accounts.client.company);
+    let email = basePage.getCurrentDate(accounts.newClient.email);
+    let password = accounts.newClient.password;
+    let firstName = basePage.getCurrentDate(accounts.newClient.firstName);
+    let lastName = basePage.getCurrentDate(accounts.newClient.lastName);
+    let company = basePage.getCurrentDate(accounts.newClient.company);
 
     // Заполняем поле email
     clientRegisterPage.enterEmail(email);

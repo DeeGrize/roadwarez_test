@@ -13,13 +13,13 @@ Scenario('DEV Тест авторизации с пустыми полями Log
 Scenario('DEV Тест авторизации с пустым полем Login', ({I}) => {
     clientLoginPage.loginEmptyLoginField(
         basePage.url.dev.clientLogin,
-        accounts.client.password);
+        accounts.newClient.password);
 }).tag('devClientLogin2');
 
 Scenario('DEV Тест авторизации с пустым полем Password', ({I}) => {
     clientLoginPage.loginEmptyPasswordField(
         basePage.url.dev.clientLogin,
-        accounts.client.email);
+        accounts.newClient.email);
 }).tag('devClientLogin3');
 
 Scenario('DEV Тест авторизации с невалидным email', ({I}) => {
@@ -32,7 +32,7 @@ Scenario('DEV Тест авторизации с незарегистриров�
     clientLoginPage.loginUnregisteredEmail(
         basePage.url.dev.clientLogin,
         basePage.data.incorrectEmail,
-        accounts.client.password);
+        accounts.newClient.password);
 }).tag('devClientLogin5');
 
 Scenario('DEV Тест кнопки forgot password', async ({I}) => {
@@ -42,8 +42,8 @@ Scenario('DEV Тест кнопки forgot password', async ({I}) => {
 Scenario('DEV Тест авторизации пользователя с неактивным чекбоксом remember me', async ({I}) => {
     await clientLoginPage.loginUserWithRememberMe(
         basePage.url.dev.clientLogin,
-        accounts.client.email,
-        accounts.client.password);
+        accounts.newClient.email,
+        accounts.newClient.password);
 }).tag('devClientLogin7');
 
 

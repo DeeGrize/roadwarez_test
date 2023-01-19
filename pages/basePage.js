@@ -3,8 +3,22 @@ const {I, accounts} = inject();
 
 class BasePage {
     baseSelectors = {
-        fields: {},
-        buttons: {},
+
+        addNewAdviserModal: '//div[@id="advertiser-modal-new"]//div[@class="modal-content"]',
+
+        fields: {
+            modalAdvertiserName: '//input[@placeholder="Advertiser Name"]',
+            modalCitiesOfOperation: '//input[@placeholder="Cities of operation"]'
+        },
+        buttons: {
+            logo: '//a[@class="logo_menu"]',
+            createNewCampaignButton: '//button[@class="btn btn-primary btn-block"]',
+            dashboardButton: '//span[text()="Dashboard"]',
+            bagListButton: '//span[text()="Bag List"]',
+            activeCampaignsButton: '//span[text()="Active Campaigns"]',
+            addNewAdvertiserButton: '//span[text()="add new advertiser"]',
+            modalButtonCreate: '//button[text()="Create"]'
+        },
         footer: {},
 
     }
@@ -54,6 +68,32 @@ class BasePage {
         return userInfo + date;
     }
 
+    clickAddNewAdvertiserButton() {
+        I.scrollTo(this.baseSelectors.buttons.addNewAdvertiserButton);
+        I.moveCursorTo(this.baseSelectors.buttons.addNewAdvertiserButton);
+        I.click(this.baseSelectors.buttons.addNewAdvertiserButton);
+        I.seeElement(this.baseSelectors.addNewAdviserModal);
+    }
+
+    clickModalButtonCreate() {
+        I.scrollTo(this.baseSelectors.buttons.modalButtonCreate);
+        I.moveCursorTo(this.baseSelectors.buttons.modalButtonCreate);
+        I.click(this.baseSelectors.buttons.modalButtonCreate);
+    }
+
+    enterModalAdvertiserName(AdvertiserName) {
+        I.scrollTo(this.baseSelectors.fields.modalAdvertiserName);
+        I.moveCursorTo(this.baseSelectors.fields.modalAdvertiserName);
+        I.click(this.baseSelectors.fields.modalAdvertiserName);
+        I.fillField(this.baseSelectors.fields.modalAdvertiserName, AdvertiserName)
+    }
+
+    enterModalCitiesOfOperation(city) {
+        I.scrollTo(this.baseSelectors.fields.modalCitiesOfOperation);
+        I.moveCursorTo(this.baseSelectors.fields.modalCitiesOfOperation);
+        I.click(this.baseSelectors.fields.modalCitiesOfOperation);
+        I.fillField(this.baseSelectors.fields.modalCitiesOfOperation, city)
+    }
 }
 
 module.exports = new BasePage;
