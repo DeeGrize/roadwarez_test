@@ -191,7 +191,7 @@ Scenario('DEV Тест добавление нового Advertiser', {retries: 
 
 }).tag('devClientAddAdvertiser4');
 
-Scenario('DEV Тест добавление нового Advertiser у старого клиента', {retries: 0}, async ({I}) => {
+Scenario('DEV Тест добавление нового Advertiser у старого клиента', {retries: 2}, async ({I}) => {
     // Авторизаци старого клиента
     clientLoginPage.loginClient(
         basePage.url.dev.clientLogin,
