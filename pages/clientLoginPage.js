@@ -19,6 +19,24 @@ class ClientLoginPage extends BasePage {
         }
     }
 
+    loginClient(clientEmail, clientPassword) {
+        I.scrollTo(this.selectors.fields.emailField);
+        I.moveCursorTo(this.selectors.fields.emailField);
+        I.click(this.selectors.fields.emailField);
+        I.fillField(this.selectors.fields.emailField, clientEmail)
+
+        I.scrollTo(this.selectors.fields.passwordField);
+        I.moveCursorTo(this.selectors.fields.passwordField);
+        I.click(this.selectors.fields.passwordField);
+        I.fillField(this.selectors.fields.passwordField, clientPassword);
+
+        I.scrollTo(this.selectors.buttons.loginButton);
+        I.moveCursorTo(this.selectors.buttons.loginButton);
+        I.click(this.selectors.buttons.loginButton);
+
+        I.see("Dashboard")
+    }
+
     loginEmptyFields(url) {
         I.amOnPage(url);
         I.scrollTo(this.selectors.buttons.loginButton);

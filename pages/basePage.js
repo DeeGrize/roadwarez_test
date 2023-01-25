@@ -81,11 +81,11 @@ class BasePage {
         I.click(this.baseSelectors.buttons.modalButtonCreate);
     }
 
-    enterModalAdvertiserName(AdvertiserName) {
+    enterModalAdvertiserName(advertiserName) {
         I.scrollTo(this.baseSelectors.fields.modalAdvertiserName);
         I.moveCursorTo(this.baseSelectors.fields.modalAdvertiserName);
         I.click(this.baseSelectors.fields.modalAdvertiserName);
-        I.fillField(this.baseSelectors.fields.modalAdvertiserName, AdvertiserName)
+        I.fillField(this.baseSelectors.fields.modalAdvertiserName, advertiserName)
     }
 
     enterModalCitiesOfOperation(city) {
@@ -94,6 +94,14 @@ class BasePage {
         I.click(this.baseSelectors.fields.modalCitiesOfOperation);
         I.fillField(this.baseSelectors.fields.modalCitiesOfOperation, city)
     }
+
+    findNewAdvertiser(advertiserName) {
+        I.click(advertiserName);
+        I.see("My campaigns");
+        I.see("No active campaign");
+        I.see("Let’s make some noise and create a new campaign");
+    }
+
 }
 
 module.exports = new BasePage;
