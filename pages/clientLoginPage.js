@@ -19,7 +19,8 @@ class ClientLoginPage extends BasePage {
         }
     }
 
-    loginClient(clientEmail, clientPassword) {
+    loginClient(url, clientEmail, clientPassword) {
+        I.amOnPage(url)
         I.scrollTo(this.selectors.fields.emailField);
         I.moveCursorTo(this.selectors.fields.emailField);
         I.click(this.selectors.fields.emailField);

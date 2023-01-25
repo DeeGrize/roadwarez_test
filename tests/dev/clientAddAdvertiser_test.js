@@ -2,6 +2,7 @@ const {
     basePage,
     accounts,
     clientRegisterPage,
+    clientLoginPage,
 } = inject();
 
 Feature('dev client add advertiser');
@@ -189,3 +190,33 @@ Scenario('DEV Тест добавление нового Advertiser', {retries: 
     basePage.findNewAdvertiser(AdvertiserName);
 
 }).tag('devClientAddAdvertiser4');
+
+Scenario('DEV Тест добавление нового Advertiser у старого клиента', {retries: 0}, async ({I}) => {
+    // Авторизаци старого клиента
+    clientLoginPage.loginClient(
+        basePage.url.dev.clientLogin,
+        accounts.client.email,
+        accounts.client.password
+    );
+
+    // Создаем нового Advertiser
+    let AdvertiserName = basePage.getCurrentDate(accounts.newAdvertiser.name);
+
+    // Нажимаем на кнопку add new advertiser
+    basePage.clickAddNewAdvertiserButton();
+
+    // Заполняем поле Advertiser Name
+    basePage.enterModalAdvertiserName(AdvertiserName);
+
+    // Заполняем поле Cities of operation
+    basePage.enterModalCitiesOfOperation(accounts.newAdvertiser.citiesOfOperation);
+    I.pressKey('Enter');
+
+    // Нажимаем на кнопку Create
+    basePage.clickModalButtonCreate();
+
+    // Находим нового Advertiser и открываем его
+    basePage.findNewAdvertiser(AdvertiserName);
+
+    I.wait(3);
+}).tag('devClientAddAdvertiser5');
