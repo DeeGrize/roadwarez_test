@@ -33,6 +33,7 @@ exports.config = {
         passwordResetRequestPage: './pages/passwordResetRequestPage.js',
         clientRegisterPage: './pages/clientRegisterPage.js',
         clientIndexPage: './pages/clientIndexPage.js',
+        clientAdvertiserPage: './pages/clientAdvertiserPage.js'
     },
     bootstrap: null,
     name: 'roadwarez_test',

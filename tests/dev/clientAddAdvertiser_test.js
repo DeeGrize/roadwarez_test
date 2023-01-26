@@ -218,5 +218,4 @@ Scenario('DEV Тест добавление нового Advertiser у стар�
     // Находим нового Advertiser и открываем его
     basePage.findNewAdvertiser(AdvertiserName);
 
-    I.wait(3);
 }).tag('devClientAddAdvertiser5');
