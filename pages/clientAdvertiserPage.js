@@ -3,7 +3,7 @@ const {I, accounts} = inject();
 
 class ClientAdvertiserPage extends BasePage {
     selectors = {
-        addAssetsModal: '//div[@class="fade modal show"]//descendant::h5[text()="Add asset"]',
+        addAssetsModal: '//div[@class="fade modal show"]//descendant::h5[text()="Add asset "]',
         buttons: {
             campaignsButton: '//span[text()="Campaigns"]',
             mediaLibraryButton: '//span[text()="Media Library"]',
@@ -35,11 +35,15 @@ class ClientAdvertiserPage extends BasePage {
     attachAndUploadAssets() {
         I.scrollTo(this.selectors.buttons.attachUploadAssetsButton);
         I.moveCursorTo(this.selectors.buttons.attachUploadAssetsButton);
-        I.attachFile(this.selectors.buttons.attachUploadAssetsButton, 'data/1.jpg')
-        I.attachFile(this.selectors.buttons.attachUploadAssetsButton, 'data/2.jpg')
-        I.attachFile(this.selectors.buttons.attachUploadAssetsButton, 'data/3.png')
-        I.attachFile(this.selectors.buttons.attachUploadAssetsButton, 'data/4.jpg')
-        I.attachFile(this.selectors.buttons.attachUploadAssetsButton, 'data/5.jpg')
+        I.attachFile(this.selectors.buttons.attachUploadAssetsButton, 'data/1.jpg');
+        I.wait(3);
+        I.attachFile(this.selectors.buttons.attachUploadAssetsButton, 'data/2.jpg');
+        I.wait(3);
+        I.attachFile(this.selectors.buttons.attachUploadAssetsButton, 'data/3.png');
+        I.wait(3);
+        I.attachFile(this.selectors.buttons.attachUploadAssetsButton, 'data/4.jpg');
+        I.wait(3);
+        I.attachFile(this.selectors.buttons.attachUploadAssetsButton, 'data/5.jpg');
     }
 }
 
